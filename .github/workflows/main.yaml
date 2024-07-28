@@ -14,8 +14,9 @@ jobs:
           echo "Hi Mom"
 
       - name: Upload Artifact
-        run: echo hello > world.txt
+        run: |
+          echo '{"app_name": "my-test-app-123", "app_version": 3.11}' >> test.json
       - uses: actions/upload-artifact@v4
         with:
-          path: world.txt
+          path: test.json
           name: my-artifact
